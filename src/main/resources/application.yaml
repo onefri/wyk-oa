@@ -70,6 +70,12 @@ emos:
     expire: 5
     #令牌缓存时间（天数）
     cache-expire: 10
+  face:
+    createFaceModelUrl: http://192.168.0.101:3000/create_face_model
+    checkinUrl: http://192.168.0.101:3000/checkin
+
+
+
 
 
 #微信

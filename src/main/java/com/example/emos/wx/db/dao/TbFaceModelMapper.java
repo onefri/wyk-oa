@@ -1,6 +1,7 @@
 package com.example.emos.wx.db.dao;
 
 import com.example.emos.wx.db.pojo.TbFaceModel;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
 * @author 23758
@@ -8,6 +9,7 @@ import com.example.emos.wx.db.pojo.TbFaceModel;
 * @createDate 2022-10-10 18:36:24
 * @Entity com.example.emos.wx.db.pojo.TbFaceModel
 */
+@Mapper
 public interface TbFaceModelMapper {
 
     String searchFaceModel(int userId);

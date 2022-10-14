@@ -16,4 +16,6 @@ public interface TbCheckinMapper {
 
  Integer haveCheckin(HashMap param);
 
+  Integer insert(TbCheckin entity);
+
 }
