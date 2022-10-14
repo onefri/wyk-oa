@@ -10,16 +10,11 @@ import com.example.emos.wx.db.pojo.TbFaceModel;
 */
 public interface TbFaceModelMapper {
 
-    int deleteByPrimaryKey(Long id);
+    String searchFaceModel(int userId);
 
-    int insert(TbFaceModel record);
+    void insert(TbFaceModel faceModelEntity);
 
-    int insertSelective(TbFaceModel record);
+    int deleteFaceModel(int userId);
 
-    TbFaceModel selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(TbFaceModel record);
-
-    int updateByPrimaryKey(TbFaceModel record);
 
 }
