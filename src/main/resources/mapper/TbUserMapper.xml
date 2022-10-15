@@ -61,4 +61,10 @@
             id, open_id, nickname, photo, name, sex, tel, role, root, dept_id, status, create_time
         FROM tb_user WHERE id=#{userId} AND status = 1
     </select>
+
+    <select id="searchNameAndDept" resultType="java.util.HashMap">
+        SELECT u.name, d.dept_name
+        FROM tb_user u LEFT JOIN tb_dept d ON u.dept_id=d.id
+        WHERE u.id = #{userId} AND u.status = 1
+    </select>
 </mapper>

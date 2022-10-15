@@ -27,4 +27,6 @@ public interface TbUserMapper {
     Set<String> searchUserPermissions(int userId);
 
       TbUser searchById(int userId);
+
+    HashMap searchNameAndDept(int userId);
 }

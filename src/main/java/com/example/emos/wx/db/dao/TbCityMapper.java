@@ -1,6 +1,8 @@
 package com.example.emos.wx.db.dao;
 
 import com.example.emos.wx.db.pojo.TbCity;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.jmx.export.annotation.ManagedAttribute;
 
 /**
 * @author 23758
@@ -8,18 +10,8 @@ import com.example.emos.wx.db.pojo.TbCity;
 * @createDate 2022-10-10 18:36:24
 * @Entity com.example.emos.wx.db.pojo.TbCity
 */
+@Mapper
 public interface TbCityMapper {
 
-    int deleteByPrimaryKey(Long id);
-
-    int insert(TbCity record);
-
-    int insertSelective(TbCity record);
-
-    TbCity selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(TbCity record);
-
-    int updateByPrimaryKey(TbCity record);
-
+    String searchCode(String city);
 }

@@ -47,6 +47,13 @@ spring:
       authentication-database: admin
       username: admin
       password: abc123456
+      #邮箱
+  mail:
+    default-encoding: UTF-8
+    host: smtp.163.com
+    username: wyk2375818593@163.com
+    password: wyk123..
+
 
 mybatis:
   mapper-locations: classpath*:mapper/*.xml
@@ -62,6 +69,7 @@ logging:
   pattern:
     console: "%d{HH:mm:ss}  %-5level  %msg%n"
 
+
 emos:
   jwt:
     #密钥
@@ -73,7 +81,11 @@ emos:
   face:
     createFaceModelUrl: http://192.168.0.101:3000/create_face_model
     checkinUrl: http://192.168.0.101:3000/checkin
-
+  email:
+    system: wyk2375818593@163.com
+    hr: 2375818593@qq.com
+  code: AA60FCBFD6C0595F
+  image-folder: E:/java-demo/emos/image
 
 
 
