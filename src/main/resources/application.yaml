@@ -15,9 +15,9 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://180.76.152.14:3306/emos?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      url: jdbc:mysql://localhost:3307/emos?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
       username: root
-      password: 123456
+      password: abc123456
       initial-size: 8
       max-active: 16
       min-idle: 8
@@ -50,8 +50,8 @@ spring:
       #邮箱
   mail:
     default-encoding: UTF-8
-    host: smtp.163.com
-    username: wyk2375818593@163.com
+    host: smtp.aliyun.com
+    username: 13703977953@aliyun.com
     password: wyk123..
 
 
@@ -79,10 +79,10 @@ emos:
     #令牌缓存时间（天数）
     cache-expire: 10
   face:
-    createFaceModelUrl: http://192.168.0.101:3000/create_face_model
-    checkinUrl: http://192.168.0.101:3000/checkin
+    createFaceModelUrl: http://192.168.39.183:3000/create_face_model
+    checkinUrl: http://192.168.39.183:3000/checkin
   email:
-    system: wyk2375818593@163.com
+    system: 13703977953@aliyun.com
     hr: 2375818593@qq.com
   code: AA60FCBFD6C0595F
   image-folder: E:/java-demo/emos/image

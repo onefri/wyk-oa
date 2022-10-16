@@ -1,7 +1,9 @@
 package com.example.emos.wx.db.dao;
 
-import com.example.emos.wx.db.pojo.TbWorkday;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
 * @author 23758
@@ -14,4 +16,7 @@ public interface TbWorkdayMapper {
 
     //查询当天是不是调休日
      Integer searchTodayIsWorkday();
+
+
+    ArrayList<String> searchWorkdayInRange(HashMap param);
 }

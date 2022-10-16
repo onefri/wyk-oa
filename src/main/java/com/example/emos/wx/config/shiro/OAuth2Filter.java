@@ -98,8 +98,8 @@ public class OAuth2Filter extends AuthenticatingFilter {
         } catch (TokenExpiredException e) {
             //客户端令牌过期，查询Redis中是否存在令牌，如果存在令牌就重新生成一个令牌给客户端
             if (redisTemplate.hasKey(token)) {
-                redisTemplate.delete(token);//删除令牌
                 int userId = jwtUtil.getUserId(token);
+                redisTemplate.delete(token);//删除令牌
                 token = jwtUtil.createToken(userId);  //生成新的令牌
                 //把新的令牌保存到Redis中
                 redisTemplate.opsForValue().set(token, userId + "", cacheExpire, TimeUnit.DAYS);
@@ -108,7 +108,7 @@ public class OAuth2Filter extends AuthenticatingFilter {
             } else {
                 //如果Redis不存在令牌，让用户重新登录
                 resp.setStatus(HttpStatus.SC_UNAUTHORIZED);
-                resp.getWriter().print("令牌已经过期");
+                resp.getWriter().print("令牌已经过期，重新登录");
                 return false;
             }
 

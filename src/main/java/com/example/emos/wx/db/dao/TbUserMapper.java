@@ -29,4 +29,9 @@ public interface TbUserMapper {
       TbUser searchById(int userId);
 
     HashMap searchNameAndDept(int userId);
+
+    String searchUserHiredate(int userId);
+
+     HashMap searchUserSummary(int userId);
+
 }

@@ -1,7 +1,9 @@
 package com.example.emos.wx.db.dao;
 
-import com.example.emos.wx.db.pojo.TbHolidays;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
 * @author 23758
@@ -15,4 +17,5 @@ public interface TbHolidaysMapper {
     //查询当天是否节假日
     Integer searchTodayIsHolidays();
 
+     ArrayList<String> searchHolidaysInRange(HashMap param);
 }

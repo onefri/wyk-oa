@@ -3,6 +3,7 @@ package com.example.emos.wx.service.impl;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import com.example.emos.wx.db.dao.TbCheckinMapper;
 import com.example.emos.wx.db.dao.TbUserMapper;
 import com.example.emos.wx.db.pojo.TbUser;
 import com.example.emos.wx.exception.EmosException;
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import java.util.HashMap;
@@ -34,6 +36,8 @@ public class UserServiceImpl implements UserService {
 
     @Value("${wx.app-secret}")
     private String appSecret;
+
+
 
     private String getOpenId(String code) {
         String url = "https://api.weixin.qq.com/sns/jscode2session";
@@ -104,5 +108,17 @@ public class UserServiceImpl implements UserService {
     public TbUser searchById(int userId) {
         return userMapper.searchById(userId);
     }
+
+    @Override
+    public String searchUserHiredate(int userId) {
+        return userMapper.searchUserHiredate(userId);
+    }
+
+    @Override
+    public HashMap searchUserSummary(int userId) {
+        return userMapper.searchUserSummary(userId);
+    }
+
+
 
 }

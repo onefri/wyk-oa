@@ -2,6 +2,8 @@ package com.example.emos.wx.service;
 
 import com.example.emos.wx.db.pojo.TbUser;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Set;
 
 public interface UserService {
@@ -17,5 +19,14 @@ public interface UserService {
     Integer login(String code);
 
     TbUser searchById(int userId);
+
+
+  String searchUserHiredate(int userId);
+
+    HashMap searchUserSummary(int userId);
+
+
+
+
 
 }

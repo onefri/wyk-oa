@@ -13,9 +13,13 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Set;
 
+
+/**
+ * 这里使用的HttpServletRequestWrapper，使用了装饰者模式
+ */
 public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
+
 
     public XssHttpServletRequestWrapper(HttpServletRequest request) {
         super(request);
