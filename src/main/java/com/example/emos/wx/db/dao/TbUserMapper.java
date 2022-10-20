@@ -1,6 +1,7 @@
 package com.example.emos.wx.db.dao;
 
 import com.example.emos.wx.db.pojo.TbUser;
+import io.swagger.models.auth.In;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.HashMap;
@@ -19,9 +20,9 @@ public interface TbUserMapper {
 
     boolean haveRootUser();
 
-    int insert(HashMap param);
+    Integer insert(HashMap param);
 
-    int searchIdByOpenId(String openId);
+    Integer searchIdByOpenId(String openId);
 
     //查询用户权限
     Set<String> searchUserPermissions(int userId);

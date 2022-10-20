@@ -139,7 +139,7 @@ public class CheckinController {
         map.put("checkinDays", days);
 
 
-          //查询出日期的入职时间
+        //查询出日期的入职时间
         DateTime hiredate = DateUtil.parse(userService.searchUserHiredate(userId));
         DateTime startDate = DateUtil.beginOfWeek(DateUtil.date());
         //如果这周开始的时间（星期一）在入职时间之前，入职之前的都不统计 ，然后从入职日期开始
@@ -165,7 +165,7 @@ public class CheckinController {
         DateTime hiredate = DateUtil.parse(userService.searchUserHiredate(userId));
         //把月份处理成双数字
         String month = form.getMonth() < 10 ? "0" + form.getMonth() : "" + form.getMonth();
-        //某年某月的起始日期
+        //某年某月的起始日期 2022-01-02 00:00:00
         DateTime startDate = DateUtil.parse(form.getYear() + "-" + month + "-01");
         //如果查询的月份早于员工入职日期的月份就抛出异常
         if (startDate.isBefore(DateUtil.beginOfMonth(hiredate))) {

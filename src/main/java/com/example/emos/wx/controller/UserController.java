@@ -1,10 +1,13 @@
 package com.example.emos.wx.controller;
 
+import cn.hutool.core.util.IdUtil;
 import com.example.emos.wx.common.util.R;
 import com.example.emos.wx.config.shiro.JwtUtil;
 import com.example.emos.wx.controller.form.LoginForm;
 import com.example.emos.wx.controller.form.RegisterForm;
+import com.example.emos.wx.db.pojo.MessageEntity;
 import com.example.emos.wx.service.UserService;
+import com.example.emos.wx.task.MessageTask;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -33,6 +37,10 @@ public class UserController {
     @Value("${emos.jwt.cache-expire}")
     private int cacheExpire;
 
+
+    @Autowired
+    private MessageTask messageTask;
+
     @PostMapping("/register")
     @ApiOperation("注册用户")
     public R register(@Valid @RequestBody RegisterForm form) {
@@ -40,6 +48,7 @@ public class UserController {
         String token = jwtUtil.createToken(id);
         Set<String> permsSet = userService.searchUserPermissions(id);
         saveCacheToken(token, id);
+
         return R.ok("用户注册成功").put("token", token).put("permission", permsSet);
     }
 

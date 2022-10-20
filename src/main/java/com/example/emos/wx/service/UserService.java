@@ -10,7 +10,7 @@ public interface UserService {
 
 
    //注册用户
-    int registerUser(String registerCode,String code,String nickname,String photo);
+    Integer registerUser(String registerCode,String code,String nickname,String photo);
 
     //查询权限
     Set<String> searchUserPermissions(int userId);
@@ -21,7 +21,7 @@ public interface UserService {
     TbUser searchById(int userId);
 
 
-  String searchUserHiredate(int userId);
+    String searchUserHiredate(int userId);
 
     HashMap searchUserSummary(int userId);
 

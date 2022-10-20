@@ -40,17 +40,21 @@ public class EmosApiApplication {
     @PostConstruct
     public void init() {
         List<SysConfig> list = sysConfigMapper.selectAllParam();
-        list.forEach(one -> {
-            String key = one.getParamKey();
+        for (SysConfig config : list) {
+            //取出常量的名字
+            String key = config.getParamKey();
+            //转换成驼峰
             key = StrUtil.toCamelCase(key);
-            String value = one.getParamValue();
+            String value = config.getParamValue();
             try {
+                //根据常量的名字找到变量赋值
                 Field field = constants.getClass().getDeclaredField(key);
-                field.set(constants, value);
+                field.set(constants,value);
             } catch (Exception e) {
-                log.error("执行异常", e);
+             log.error("执行异常",e);
             }
-        });
+        }
+
 
         //如果文件不存在就创建
         new File(imageFolder).mkdirs();

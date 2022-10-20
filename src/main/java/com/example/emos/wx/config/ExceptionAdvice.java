@@ -15,15 +15,17 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class ExceptionAdvice {
 
     @ResponseBody
+    //500
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Exception.class)
     public String validExceptionHandler(Exception e) {
         log.error("执行异常",e);
         if (e instanceof MethodArgumentNotValidException) {
             MethodArgumentNotValidException exception = (MethodArgumentNotValidException) e;
-            //将错误信息返回给前台
+            //将错误信息返回给前台 校验不通过
             return exception.getBindingResult().getFieldError().getDefaultMessage();
         }
+        //自定义异常
         else if(e instanceof EmosException){
             EmosException exception=(EmosException)e;
             return exception.getMsg();
